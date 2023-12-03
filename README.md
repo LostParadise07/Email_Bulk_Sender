@@ -9,4 +9,4 @@
 
 #Run
 
-    git clone https://github.com/pmvenkat/Django-Navigation-bar.git
+    git clone https://github.com/LostParadise07/Email_Bulk_Sender
