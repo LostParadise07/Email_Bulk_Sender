@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% extends "navbar/mainpage.html" %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentation</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+      div.d {
+        text-align: justify;
+      } 
+      </style>
+  </style>
+</head>
+<body background="{% static 'navbar/bg1.jpeg' %}">
+
+{% block extendme%}
+<br>
+<div class="container">
+  <div class="jumbotron">
+      <div class="d">
+    <!-- button to send emails  -->
+    <form method="post" action="{% url 'navbar:sendemails.html' %}">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-primary">Send Emails</button>
+  </form>
+      <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Serial No.</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for email in emails %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ email }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+    
+    </div>    
+</div>
+{% endblock %}
+
+</body>
+</html>
